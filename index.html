@@ -7,21 +7,17 @@
   <meta name="description" content="Nurvi's Baby Day Care in Aadharwadi, Kalyan West is a loving home-based childcare run by grandparents. Homely food, safe environment, personal attention and warmth — just like family." />
   <meta name="keywords" content="baby day care Kalyan, home-based daycare Kalyan West, child care Aadharwadi, grandparent care, toddler care Kalyan, infant care Kalyan West, Nurvi's Baby Day Care" />
 
-  <!-- Open Graph -->
   <meta property="og:title" content="Nurvi's Baby Day Care — A Second Home for Your Child" />
   <meta property="og:description" content="Home-based childcare in Kalyan West run by loving grandparents. Safe, warm, homely — just like family." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://example.com" />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Favicon -->
   <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="%23fef3c7"/><circle cx="50" cy="42" r="24" fill="%23f97316"/><circle cx="40" cy="38" r="4" fill="white"/><circle cx="60" cy="38" r="4" fill="white"/><path d="M38 56c8 8 16 8 24 0" stroke="white" stroke-width="4" fill="none" stroke-linecap="round"/></svg>'>
 
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -31,6 +27,7 @@
             brand:   { DEFAULT:'#f97316','50':'#fff7ed','100':'#ffedd5','200':'#fed7aa','300':'#fdba74','400':'#fb923c','500':'#f97316','600':'#ea580c','700':'#c2410c' },
             honey:   { DEFAULT:'#fbbf24','50':'#fffbeb','100':'#fef3c7','200':'#fde68a' },
             sage:    { DEFAULT:'#84cc16','50':'#f7fee7','100':'#ecfccb' },
+            sky:     { DEFAULT:'#0ea5e9','50':'#f0f9ff','100':'#e0f2fe' },
           },
           fontFamily: {
             display: ['"Playfair Display"','Georgia','serif'],
@@ -42,45 +39,57 @@
   </script>
 
   <style>
-    /* Base */
     html { scroll-behavior: smooth; }
     body { font-family: 'Nunito', system-ui, sans-serif; }
-
-    /* Glassy navbar */
-    .glass { backdrop-filter: saturate(1.8) blur(12px); background: rgba(255,252,245,.85); }
-
-    /* Card hover lift */
+    .glass { backdrop-filter: saturate(1.8) blur(12px); background: rgba(255,252,245,.88); }
     .lift { transition: transform .22s ease, box-shadow .22s ease; }
-    .lift:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(249,115,22,.12); }
-
-    /* Animated underline on nav links */
+    .lift:hover { transform: translateY(-4px); box-shadow: 0 18px 38px rgba(249,115,22,.13); }
     .nav-link { position:relative; }
     .nav-link::after { content:''; position:absolute; left:0; bottom:-2px; width:0; height:2px; background:#f97316; border-radius:2px; transition: width .25s ease; }
     .nav-link:hover::after { width:100%; }
-
-    /* Hero blob decoration */
     .blob { border-radius: 60% 40% 55% 45% / 45% 55% 45% 55%; }
 
-    /* Soft section divider wave */
-    .wave-bottom { clip-path: ellipse(100% 60% at 50% 100%); }
-    .wave-top    { clip-path: ellipse(100% 60% at 50% 0%); }
-
-    /* Pricing badge pulse */
     @keyframes pulse-soft {
       0%,100% { box-shadow: 0 0 0 0 rgba(249,115,22,.3); }
-      50%      { box-shadow: 0 0 0 8px rgba(249,115,22,0); }
+      50%      { box-shadow: 0 0 0 10px rgba(249,115,22,0); }
     }
     .pulse-badge { animation: pulse-soft 2.2s ease infinite; }
 
-    /* Fade-in on scroll (JS driven) */
-    .fade-in { opacity:0; transform:translateY(22px); transition: opacity .55s ease, transform .55s ease; }
-    .fade-in.visible { opacity:1; transform:translateY(0); }
+    @keyframes pulse-blue {
+      0%,100% { box-shadow: 0 0 0 0 rgba(14,165,233,.35); }
+      50%      { box-shadow: 0 0 0 10px rgba(14,165,233,0); }
+    }
+    .pulse-blue { animation: pulse-blue 2.4s ease infinite; }
 
-    /* Emoji icon ring */
+    .fade-in { opacity:0; transform:translateY(24px); transition: opacity .55s ease, transform .55s ease; }
+    .fade-in.visible { opacity:1; transform:translateY(0); }
     .icon-ring { width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.4rem; flex-shrink:0; }
+
+    /* FlexiCare tab UI */
+    .tab-btn { transition: all .2s ease; }
+    .tab-btn.active { background: #f97316; color: white; box-shadow: 0 4px 14px rgba(249,115,22,.3); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* Shimmer badge */
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    .shimmer-badge {
+      background: linear-gradient(90deg, #fbbf24, #f97316, #fbbf24);
+      background-size: 200% auto;
+      animation: shimmer 2s linear infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Sport activity card */
+    .sport-card { position: relative; overflow: hidden; }
+    .sport-card::before { content:''; position:absolute; inset:0; background: linear-gradient(135deg, rgba(255,255,255,.15) 0%, transparent 60%); pointer-events:none; }
   </style>
 
-  <!-- Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -111,29 +120,24 @@
 <header class="sticky top-0 z-50 glass border-b border-amber-100/80">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
-
-      <!-- Logo -->
       <a href="#" class="flex items-center gap-2.5">
         <img src="images/Nurvi's.png" alt="Nurvi's Baby Day Care Logo" class="h-10 w-auto" onerror="this.style.display='none'">
         <span class="font-display font-semibold text-xl text-slate-900 leading-tight">
           Nurvi's <span class="text-brand">Baby</span> Day Care
         </span>
       </a>
-
-      <!-- Desktop nav -->
-      <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-slate-600">
-        <a href="#about"   class="nav-link hover:text-brand-600">About</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-600">
+        <a href="#about"    class="nav-link hover:text-brand-600">About</a>
         <a href="#features" class="nav-link hover:text-brand-600">What We Offer</a>
-        <a href="#safety"  class="nav-link hover:text-brand-600">Food & Safety</a>
-        <a href="#pricing" class="nav-link hover:text-brand-600">Plans</a>
-        <a href="#faq"     class="nav-link hover:text-brand-600">FAQs</a>
+        <a href="#safety"   class="nav-link hover:text-brand-600">Food & Safety</a>
+        <a href="#flexicare" class="nav-link hover:text-brand-600">FlexiCare ✨</a>
+        <a href="#pricing"  class="nav-link hover:text-brand-600">Plans</a>
+        <a href="#faq"      class="nav-link hover:text-brand-600">FAQs</a>
         <a href="#contact"
            class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-brand text-white hover:bg-brand-600 transition-colors shadow-sm shadow-orange-200">
           📞 Contact Us
         </a>
       </nav>
-
-      <!-- Mobile CTA -->
       <a href="#contact" class="md:hidden inline-flex items-center px-3 py-2 rounded-xl bg-brand text-white text-sm font-semibold">
         Contact
       </a>
@@ -146,79 +150,55 @@
   HERO
 ═══════════════════════════════════════════ -->
 <section class="relative overflow-hidden pt-12 pb-20 sm:pt-16 sm:pb-28">
-
-  <!-- Decorative blobs -->
   <div class="absolute -top-24 -right-24 w-96 h-96 blob bg-amber-100/60 -z-10"></div>
   <div class="absolute top-1/2 -left-20 w-64 h-64 blob bg-orange-100/40 -z-10"></div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid lg:grid-cols-2 gap-12 items-center">
-
-      <!-- Copy -->
       <div class="fade-in">
-        <!-- Pill badge -->
         <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-100 border border-amber-200 text-amber-800 text-xs font-semibold mb-5">
           🏠 Home-Based Care · Kalyan West
         </div>
-
         <h1 class="font-display text-4xl sm:text-5xl lg:text-[3.2rem] font-bold text-slate-900 leading-[1.18]">
           Your child isn't going to a daycare.<br>
           <em class="text-brand not-italic">They're coming home.</em>
         </h1>
-
         <p class="mt-5 text-lg text-slate-600 leading-relaxed max-w-xl">
           At Nurvi's Baby Day Care, your little one is cared for in a <strong>real home</strong> by loving
           <strong>grandparents</strong> — with homely meals, warm hugs, and the kind of attention only family can give.
         </p>
-
-        <!-- Trust pills -->
         <div class="mt-6 flex flex-wrap gap-2.5">
-          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-amber-200 text-sm font-medium text-slate-700 shadow-sm">
-            👴👵 Grandparent care
-          </span>
-          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-amber-200 text-sm font-medium text-slate-700 shadow-sm">
-            🍲 Home-cooked meals
-          </span>
-          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-amber-200 text-sm font-medium text-slate-700 shadow-sm">
-            👶 Limited children
-          </span>
-          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-amber-200 text-sm font-medium text-slate-700 shadow-sm">
-            🔒 Safe & secure
-          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-amber-200 text-sm font-medium text-slate-700 shadow-sm">👴👵 Grandparent care</span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-amber-200 text-sm font-medium text-slate-700 shadow-sm">🍲 Home-cooked meals</span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-amber-200 text-sm font-medium text-slate-700 shadow-sm">👶 Limited children</span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-amber-200 text-sm font-medium text-slate-700 shadow-sm">🚴 Outdoor sports</span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-amber-200 text-sm font-medium text-slate-700 shadow-sm">🔒 Safe & secure</span>
         </div>
-
-        <!-- CTAs -->
         <div class="mt-8 flex flex-wrap gap-3">
           <a href="https://wa.me/918108201967?text=Hi%20Nurvi's%20Baby%20Day%20Care%2C%20I%27d%20like%20to%20enquire."
-             class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-brand text-white font-semibold hover:bg-brand-600 lift shadow-md shadow-orange-200"
-             aria-label="WhatsApp us">
+             class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-brand text-white font-semibold hover:bg-brand-600 lift shadow-md shadow-orange-200">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.549 4.116 1.508 5.855L0 24l6.335-1.493A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.011-1.375l-.36-.214-3.732.879.937-3.638-.235-.374A9.818 9.818 0 1112 21.818z"/></svg>
             WhatsApp Us
           </a>
           <a href="tel:+919594570085"
-             class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border-2 border-brand/30 text-brand font-semibold hover:bg-amber-50 lift"
-             aria-label="Call us">
+             class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border-2 border-brand/30 text-brand font-semibold hover:bg-amber-50 lift">
             📞 Call Us
           </a>
           <a href="https://docs.google.com/forms/d/1BKdmtywUPCiXExUelXfXwc6Nv9n5Ko6ytms99Hg37MI/edit"
              class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-slate-200 bg-white text-slate-700 font-semibold hover:bg-amber-50 lift"
-             aria-label="Enquiry form" target="_blank" rel="noopener">
+             target="_blank" rel="noopener">
             📋 Enquiry Form
           </a>
         </div>
-
         <p class="mt-5 text-sm text-slate-500">Open Mon–Sat · 8:00 AM – 7:00 PM · Aadharwadi, Kalyan West</p>
       </div>
 
-      <!-- Hero visual card -->
       <div class="relative fade-in" style="transition-delay:.15s">
         <div class="relative rounded-3xl overflow-hidden shadow-xl shadow-orange-100 border border-amber-100 bg-white">
           <img src="images/children-playing.jpg"
                alt="Children playing happily in a home environment"
                class="w-full aspect-[4/3] object-cover"
                onerror="this.src='https://dummyimage.com/800x600/fef3c7/f97316.png&text=Happy+Kids+at+Home'">
-
-          <!-- Floating stat card -->
           <div class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm rounded-2xl px-4 py-3 flex items-center gap-3 border border-amber-100 shadow-sm">
             <span class="text-2xl">❤️</span>
             <div>
@@ -227,22 +207,19 @@
             </div>
           </div>
         </div>
-
-        <!-- Decorative dots -->
         <div class="absolute -bottom-5 -right-5 grid grid-cols-4 gap-1.5 opacity-40 -z-10">
           <div class="w-2 h-2 rounded-full bg-amber-300"></div><div class="w-2 h-2 rounded-full bg-orange-300"></div><div class="w-2 h-2 rounded-full bg-amber-300"></div><div class="w-2 h-2 rounded-full bg-orange-300"></div>
           <div class="w-2 h-2 rounded-full bg-orange-300"></div><div class="w-2 h-2 rounded-full bg-amber-300"></div><div class="w-2 h-2 rounded-full bg-orange-300"></div><div class="w-2 h-2 rounded-full bg-amber-300"></div>
           <div class="w-2 h-2 rounded-full bg-amber-300"></div><div class="w-2 h-2 rounded-full bg-orange-300"></div><div class="w-2 h-2 rounded-full bg-amber-300"></div><div class="w-2 h-2 rounded-full bg-orange-300"></div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
 
 <!-- ══════════════════════════════════════════
-  NOT A DAYCARE — POSITIONING BANNER
+  BANNER
 ═══════════════════════════════════════════ -->
 <section class="py-10 bg-brand">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -257,341 +234,350 @@
 
 
 <!-- ══════════════════════════════════════════
-  ABOUT / WHY PARENTS CHOOSE US
+  ABOUT
 ═══════════════════════════════════════════ -->
 <section id="about" class="py-20 sm:py-24">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-    <!-- Heading -->
     <div class="text-center mb-14 fade-in">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-700 text-xs font-semibold mb-3">
-        💛 Why Parents Choose Us
-      </div>
-      <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900">
-        More than care — it's <em class="text-brand">family.</em>
-      </h2>
-      <p class="mt-3 text-slate-500 max-w-xl mx-auto">
-        Here's what makes Nurvi's Baby Day Care different from every other childcare option in Kalyan.
-      </p>
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-700 text-xs font-semibold mb-3">💛 Why Parents Choose Us</div>
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900">More than care — it's <em class="text-brand">family.</em></h2>
+      <p class="mt-3 text-slate-500 max-w-xl mx-auto">Here's what makes Nurvi's Baby Day Care different from every other childcare option in Kalyan.</p>
     </div>
-
-    <!-- Cards grid -->
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
       <div class="rounded-2xl p-6 bg-white border border-amber-100 lift fade-in">
         <div class="icon-ring bg-amber-100 mb-4">🏠</div>
         <h3 class="font-semibold text-slate-900 text-base">Real home, not an institution</h3>
-        <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-          Your child stays in a warm, actual home — not a commercial setup with strangers. They play, eat and rest in a natural family environment.
-        </p>
+        <p class="mt-2 text-sm text-slate-600 leading-relaxed">Your child stays in a warm, actual home — not a commercial setup with strangers. They play, eat and rest in a natural family environment.</p>
       </div>
-
       <div class="rounded-2xl p-6 bg-white border border-amber-100 lift fade-in" style="transition-delay:.07s">
         <div class="icon-ring bg-orange-100 mb-4">👴👵</div>
         <h3 class="font-semibold text-slate-900 text-base">Grandparent supervision</h3>
-        <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-          Children are cared for by grandparents — patient, experienced, and full of love. This is something no commercial daycare can offer.
-        </p>
+        <p class="mt-2 text-sm text-slate-600 leading-relaxed">Children are cared for by grandparents — patient, experienced, and full of love. This is something no commercial daycare can offer.</p>
       </div>
-
       <div class="rounded-2xl p-6 bg-white border border-amber-100 lift fade-in" style="transition-delay:.14s">
         <div class="icon-ring bg-yellow-100 mb-4">👶</div>
         <h3 class="font-semibold text-slate-900 text-base">Very few children at a time</h3>
-        <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-          We limit the number of children so every child gets personal attention, emotional care, and time — just like your own home.
-        </p>
+        <p class="mt-2 text-sm text-slate-600 leading-relaxed">We limit the number of children so every child gets personal attention, emotional care, and time — just like your own home.</p>
       </div>
-
       <div class="rounded-2xl p-6 bg-white border border-amber-100 lift fade-in">
         <div class="icon-ring bg-green-100 mb-4">🔒</div>
         <h3 class="font-semibold text-slate-900 text-base">Safe & secure environment</h3>
-        <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-          No strangers. No outside visitors. Only pre-approved parents can pick up children. Your child's safety is our first priority — always.
-        </p>
+        <p class="mt-2 text-sm text-slate-600 leading-relaxed">No strangers. No outside visitors. Only pre-approved parents can pick up children. Your child's safety is our first priority — always.</p>
       </div>
-
       <div class="rounded-2xl p-6 bg-white border border-amber-100 lift fade-in" style="transition-delay:.07s">
         <div class="icon-ring bg-rose-100 mb-4">🎨</div>
         <h3 class="font-semibold text-slate-900 text-base">Play-based, no pressure learning</h3>
-        <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-          No forced academics. Children learn through play, stories, rhymes and art — building curiosity and confidence naturally.
-        </p>
+        <p class="mt-2 text-sm text-slate-600 leading-relaxed">No forced academics. Children learn through play, stories, rhymes and art — building curiosity and confidence naturally.</p>
       </div>
-
       <div class="rounded-2xl p-6 bg-white border border-amber-100 lift fade-in" style="transition-delay:.14s">
         <div class="icon-ring bg-sky-100 mb-4">💬</div>
         <h3 class="font-semibold text-slate-900 text-base">Daily parent updates</h3>
-        <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-          We share regular updates about meals, naps, activities and mood so you always feel close to your child, even when you're at work.
-        </p>
+        <p class="mt-2 text-sm text-slate-600 leading-relaxed">We share regular updates about meals, naps, activities and mood so you always feel close to your child, even when you're at work.</p>
       </div>
-
       <div class="rounded-2xl p-6 bg-white border border-amber-100 lift fade-in">
         <div class="icon-ring bg-purple-100 mb-4">🙏</div>
         <h3 class="font-semibold text-slate-900 text-base">Values & good habits</h3>
-        <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-          Prayer, sharing, saying thank you — small but powerful habits that build good character. Taught with love, not pressure.
-        </p>
+        <p class="mt-2 text-sm text-slate-600 leading-relaxed">Prayer, sharing, saying thank you — small but powerful habits that build good character. Taught with love, not pressure.</p>
       </div>
-
       <div class="rounded-2xl p-6 bg-white border border-amber-100 lift fade-in" style="transition-delay:.07s">
         <div class="icon-ring bg-amber-100 mb-4">❤️</div>
         <h3 class="font-semibold text-slate-900 text-base">Emotional bonding & comfort</h3>
-        <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-          Children here are not just managed — they are loved. We focus on making each child feel happy, secure and attached.
-        </p>
+        <p class="mt-2 text-sm text-slate-600 leading-relaxed">Children here are not just managed — they are loved. We focus on making each child feel happy, secure and attached.</p>
       </div>
-
       <div class="rounded-2xl p-6 bg-white border border-amber-100 lift fade-in" style="transition-delay:.14s">
         <div class="icon-ring bg-lime-100 mb-4">🌿</div>
         <h3 class="font-semibold text-slate-900 text-base">Outdoor garden time</h3>
-        <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-          Fresh air, running around, exploring nature — children spend healthy time outdoors in our garden as part of their daily routine.
-        </p>
+        <p class="mt-2 text-sm text-slate-600 leading-relaxed">Fresh air, running around, exploring nature — children spend healthy time outdoors in our garden as part of their daily routine.</p>
       </div>
-
     </div>
   </div>
 </section>
 
 
 <!-- ══════════════════════════════════════════
-  FEATURES — WHAT WE PROVIDE
+  FEATURES
 ═══════════════════════════════════════════ -->
 <section id="features" class="py-20 sm:py-24 bg-amber-50/70 border-y border-amber-100">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
     <div class="text-center mb-14 fade-in">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 text-orange-700 text-xs font-semibold mb-3">
-        ✨ What We Provide
-      </div>
-      <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900">
-        Everything your child needs, <em class="text-brand">under one roof.</em>
-      </h2>
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 text-orange-700 text-xs font-semibold mb-3">✨ What We Provide</div>
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900">Everything your child needs, <em class="text-brand">under one roof.</em></h2>
     </div>
-
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-      <div class="rounded-2xl p-5 bg-white border border-amber-100 lift fade-in text-center">
-        <div class="text-3xl mb-3">🍲</div>
-        <h3 class="font-semibold text-sm">Hot, Homely Meals</h3>
-        <p class="mt-1.5 text-xs text-slate-500 leading-relaxed">Fresh, nutritious food cooked at home every day — just like maa ke haath ka khana.</p>
-      </div>
-      <div class="rounded-2xl p-5 bg-white border border-amber-100 lift fade-in text-center" style="transition-delay:.06s">
-        <div class="text-3xl mb-3">🎭</div>
-        <h3 class="font-semibold text-sm">Play & Learning</h3>
-        <p class="mt-1.5 text-xs text-slate-500 leading-relaxed">Blocks, puzzles, rhymes, art, stories — fun activities that build smart minds.</p>
-      </div>
-      <div class="rounded-2xl p-5 bg-white border border-amber-100 lift fade-in text-center" style="transition-delay:.12s">
-        <div class="text-3xl mb-3">🕌</div>
-        <h3 class="font-semibold text-sm">Prayer & Values</h3>
-        <p class="mt-1.5 text-xs text-slate-500 leading-relaxed">Short daily gratitude and habits to build good character from the early years.</p>
-      </div>
-      <div class="rounded-2xl p-5 bg-white border border-amber-100 lift fade-in text-center" style="transition-delay:.18s">
-        <div class="text-3xl mb-3">🌳</div>
-        <h3 class="font-semibold text-sm">Garden Time</h3>
-        <p class="mt-1.5 text-xs text-slate-500 leading-relaxed">Fresh air and outdoor play in our garden — healthy for body and mind.</p>
-      </div>
-      <div class="rounded-2xl p-5 bg-white border border-amber-100 lift fade-in text-center">
-        <div class="text-3xl mb-3">🚌</div>
-        <h3 class="font-semibold text-sm">School Van Coordination</h3>
-        <p class="mt-1.5 text-xs text-slate-500 leading-relaxed">We coordinate school van pick-up & drop so your child transitions smoothly.</p>
-      </div>
-      <div class="rounded-2xl p-5 bg-white border border-amber-100 lift fade-in text-center" style="transition-delay:.06s">
-        <div class="text-3xl mb-3">🎵</div>
-        <h3 class="font-semibold text-sm">Songs, Dance & Fun</h3>
-        <p class="mt-1.5 text-xs text-slate-500 leading-relaxed">Music, celebrations and free play keep children joyful and expressive.</p>
-      </div>
-      <div class="rounded-2xl p-5 bg-white border border-amber-100 lift fade-in text-center" style="transition-delay:.12s">
-        <div class="text-3xl mb-3">💛</div>
-        <h3 class="font-semibold text-sm">Discipline with Love</h3>
-        <p class="mt-1.5 text-xs text-slate-500 leading-relaxed">Clear routines, patience and positive guidance — no harsh words, ever.</p>
-      </div>
-      <div class="rounded-2xl p-5 bg-white border border-amber-100 lift fade-in text-center" style="transition-delay:.18s">
-        <div class="text-3xl mb-3">📱</div>
-        <h3 class="font-semibold text-sm">Regular Parent Updates</h3>
-        <p class="mt-1.5 text-xs text-slate-500 leading-relaxed">Meals, nap times and fun moments — we keep you in the loop throughout the day.</p>
-      </div>
+      <div class="rounded-2xl p-5 bg-white border border-amber-100 lift fade-in text-center"><div class="text-3xl mb-3">🍲</div><h3 class="font-semibold text-sm">Hot, Homely Meals</h3><p class="mt-1.5 text-xs text-slate-500 leading-relaxed">Fresh, nutritious food cooked at home every day — just like maa ke haath ka khana.</p></div>
+      <div class="rounded-2xl p-5 bg-white border border-amber-100 lift fade-in text-center" style="transition-delay:.06s"><div class="text-3xl mb-3">🎭</div><h3 class="font-semibold text-sm">Play & Learning</h3><p class="mt-1.5 text-xs text-slate-500 leading-relaxed">Blocks, puzzles, rhymes, art, stories — fun activities that build smart minds.</p></div>
+      <div class="rounded-2xl p-5 bg-white border border-amber-100 lift fade-in text-center" style="transition-delay:.12s"><div class="text-3xl mb-3">🕌</div><h3 class="font-semibold text-sm">Prayer & Values</h3><p class="mt-1.5 text-xs text-slate-500 leading-relaxed">Short daily gratitude and habits to build good character from the early years.</p></div>
+      <div class="rounded-2xl p-5 bg-white border border-amber-100 lift fade-in text-center" style="transition-delay:.18s"><div class="text-3xl mb-3">🌳</div><h3 class="font-semibold text-sm">Garden Time</h3><p class="mt-1.5 text-xs text-slate-500 leading-relaxed">Fresh air and outdoor play in our garden — healthy for body and mind.</p></div>
+      <div class="rounded-2xl p-5 bg-white border border-amber-100 lift fade-in text-center"><div class="text-3xl mb-3">🚌</div><h3 class="font-semibold text-sm">School Van Coordination</h3><p class="mt-1.5 text-xs text-slate-500 leading-relaxed">We coordinate school van pick-up & drop so your child transitions smoothly.</p></div>
+      <div class="rounded-2xl p-5 bg-white border border-amber-100 lift fade-in text-center" style="transition-delay:.06s"><div class="text-3xl mb-3">🎵</div><h3 class="font-semibold text-sm">Songs, Dance & Fun</h3><p class="mt-1.5 text-xs text-slate-500 leading-relaxed">Music, celebrations and free play keep children joyful and expressive.</p></div>
+      <div class="rounded-2xl p-5 bg-white border border-amber-100 lift fade-in text-center" style="transition-delay:.12s"><div class="text-3xl mb-3">💛</div><h3 class="font-semibold text-sm">Discipline with Love</h3><p class="mt-1.5 text-xs text-slate-500 leading-relaxed">Clear routines, patience and positive guidance — no harsh words, ever.</p></div>
+      <div class="rounded-2xl p-5 bg-white border border-amber-100 lift fade-in text-center" style="transition-delay:.18s"><div class="text-3xl mb-3">📱</div><h3 class="font-semibold text-sm">Regular Parent Updates</h3><p class="mt-1.5 text-xs text-slate-500 leading-relaxed">Meals, nap times and fun moments — we keep you in the loop throughout the day.</p></div>
     </div>
-
   </div>
 </section>
 
 
 <!-- ══════════════════════════════════════════
-  FOOD & SAFETY SECTION
+  FOOD & SAFETY
 ═══════════════════════════════════════════ -->
 <section id="safety" class="py-20 sm:py-24">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
     <div class="grid lg:grid-cols-2 gap-12 items-center">
-
-      <!-- Left visual -->
       <div class="relative fade-in">
         <div class="rounded-3xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 p-8 sm:p-10">
           <div class="text-6xl mb-4">🍛</div>
           <h2 class="font-display text-3xl font-bold text-slate-900">Pure homely food. Zero compromise.</h2>
-          <p class="mt-3 text-slate-600 leading-relaxed">
-            Every meal your child eats here is freshly cooked in our own kitchen — the same way we cook for our family. No packaged food, no shortcuts.
-          </p>
-
-          <!-- Food promise grid -->
+          <p class="mt-3 text-slate-600 leading-relaxed">Every meal your child eats here is freshly cooked in our own kitchen — the same way we cook for our family. No packaged food, no shortcuts.</p>
           <div class="mt-6 grid grid-cols-2 gap-3">
-            <div class="flex items-start gap-2.5 bg-white rounded-xl p-3 border border-amber-100">
-              <span class="text-green-500 font-bold text-lg leading-none mt-0.5">✓</span>
+            <div class="flex items-start gap-2.5 bg-white rounded-xl p-3 border border-amber-100"><span class="text-green-500 font-bold text-lg leading-none mt-0.5">✓</span><div><p class="text-sm font-semibold text-slate-800">Home-cooked daily</p><p class="text-xs text-slate-500 mt-0.5">Fresh meals every day</p></div></div>
+            <div class="flex items-start gap-2.5 bg-white rounded-xl p-3 border border-amber-100"><span class="text-green-500 font-bold text-lg leading-none mt-0.5">✓</span><div><p class="text-sm font-semibold text-slate-800">Nutritious &amp; balanced</p><p class="text-xs text-slate-500 mt-0.5">Good for growing kids</p></div></div>
+            <div class="flex items-start gap-2.5 bg-white rounded-xl p-3 border border-amber-100"><span class="text-red-400 font-bold text-lg leading-none mt-0.5">✗</span><div><p class="text-sm font-semibold text-slate-800">No outside food</p><p class="text-xs text-slate-500 mt-0.5">For hygiene &amp; safety</p></div></div>
+            <div class="flex items-start gap-2.5 bg-white rounded-xl p-3 border border-amber-100"><span class="text-green-500 font-bold text-lg leading-none mt-0.5">✓</span><div><p class="text-sm font-semibold text-slate-800">Send from home too</p><p class="text-xs text-slate-500 mt-0.5">If you prefer</p></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="fade-in" style="transition-delay:.12s">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 text-red-600 text-xs font-semibold mb-4 border border-red-100">🛡️ Safety & Security Rules</div>
+        <h2 class="font-display text-3xl font-bold text-slate-900">Your child's safety is <em class="text-brand">non-negotiable.</em></h2>
+        <p class="mt-3 text-slate-600 leading-relaxed">We follow strict safety guidelines so every parent can leave in the morning with a calm mind.</p>
+        <ul class="mt-6 space-y-4">
+          <li class="flex items-start gap-3.5"><div class="icon-ring bg-red-50 border border-red-100 text-lg">🚫</div><div><p class="font-semibold text-slate-800 text-sm">No outsider allowed for pick-up/drop</p><p class="text-xs text-slate-500 mt-1">Only parents or pre-approved family members can pick up or drop a child. No exceptions.</p></div></li>
+          <li class="flex items-start gap-3.5"><div class="icon-ring bg-amber-50 border border-amber-100 text-lg">📵</div><div><p class="font-semibold text-slate-800 text-sm">No outside visitors during care hours</p><p class="text-xs text-slate-500 mt-1">The home is closed to outside people while children are present — their safety comes first.</p></div></li>
+          <li class="flex items-start gap-3.5"><div class="icon-ring bg-green-50 border border-green-100 text-lg">🧼</div><div><p class="font-semibold text-slate-800 text-sm">Hygiene & cleanliness maintained</p><p class="text-xs text-slate-500 mt-1">Regular handwashing, clean play areas, and fresh meals — we take hygiene very seriously.</p></div></li>
+          <li class="flex items-start gap-3.5"><div class="icon-ring bg-blue-50 border border-blue-100 text-lg">📞</div><div><p class="font-semibold text-slate-800 text-sm">Immediate parent communication</p><p class="text-xs text-slate-500 mt-1">If a child feels unwell or upset, parents are contacted right away — no delays, no surprises.</p></div></li>
+          <li class="flex items-start gap-3.5"><div class="icon-ring bg-purple-50 border border-purple-100 text-lg">💛</div><div><p class="font-semibold text-slate-800 text-sm">Gentle discipline — no harsh behaviour</p><p class="text-xs text-slate-500 mt-1">We handle children with patience, kindness and love. No shouting, no fear-based correction.</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+  ✨ FLEXICARE — NEW SECTION
+═══════════════════════════════════════════ -->
+<section id="flexicare" class="py-20 sm:py-28 relative overflow-hidden" style="background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0c4a6e 100%);">
+
+  <!-- Decorative glows -->
+  <div class="absolute top-0 left-1/4 w-80 h-80 rounded-full blur-3xl opacity-20" style="background: radial-gradient(circle, #38bdf8, transparent);"></div>
+  <div class="absolute bottom-0 right-1/4 w-64 h-64 rounded-full blur-3xl opacity-15" style="background: radial-gradient(circle, #f97316, transparent);"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+    <!-- Heading -->
+    <div class="text-center mb-14 fade-in">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-sky-400/40 bg-sky-400/10 text-sky-300 text-xs font-bold mb-4 tracking-wide uppercase">
+        ✨ New — FlexiCare Package
+      </div>
+      <h2 class="font-display text-4xl sm:text-5xl font-bold text-white leading-tight">
+        Care on <em class="not-italic" style="background: linear-gradient(90deg,#fbbf24,#f97316); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">your schedule.</em>
+      </h2>
+      <p class="mt-4 text-slate-300 text-lg max-w-2xl mx-auto leading-relaxed">
+        Not every family needs full-day care. With FlexiCare, drop your child for just a few hours or a full day — fully customisable, no lock-in commitment.
+      </p>
+    </div>
+
+    <!-- Tab Selector -->
+    <div class="flex justify-center mb-10 fade-in" style="transition-delay:.1s">
+      <div class="inline-flex gap-2 p-1.5 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/15">
+        <button onclick="switchTab('hours')" id="tab-hours"
+          class="tab-btn active px-6 py-2.5 rounded-xl font-semibold text-sm text-white">
+          ⏰ Half-Day (6 hrs)
+        </button>
+        <button onclick="switchTab('day')" id="tab-day"
+          class="tab-btn px-6 py-2.5 rounded-xl font-semibold text-sm text-white/60">
+          🌟 Full Day (1 day)
+        </button>
+        <button onclick="switchTab('custom')" id="tab-custom"
+          class="tab-btn px-6 py-2.5 rounded-xl font-semibold text-sm text-white/60">
+          🛠️ Custom Plan
+        </button>
+      </div>
+    </div>
+
+    <!-- Tab Panels -->
+    <div class="max-w-4xl mx-auto">
+
+      <!-- Panel: Half-Day -->
+      <div id="panel-hours" class="tab-panel active fade-in">
+        <div class="grid lg:grid-cols-2 gap-8 items-center">
+          <div class="rounded-3xl p-8 border border-sky-400/30 bg-white/5 backdrop-blur-sm">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl" style="background: linear-gradient(135deg,#0ea5e9,#0284c7);">⏰</div>
               <div>
-                <p class="text-sm font-semibold text-slate-800">Home-cooked daily</p>
-                <p class="text-xs text-slate-500 mt-0.5">Fresh meals every day</p>
+                <p class="text-sky-300 text-xs font-bold uppercase tracking-widest">Half-Day FlexiCare</p>
+                <div class="flex items-end gap-1.5 mt-1">
+                  <span class="font-display text-5xl font-bold text-white">₹399</span>
+                  <span class="text-slate-400 text-sm mb-1.5">/ session</span>
+                </div>
               </div>
             </div>
-            <div class="flex items-start gap-2.5 bg-white rounded-xl p-3 border border-amber-100">
-              <span class="text-green-500 font-bold text-lg leading-none mt-0.5">✓</span>
-              <div>
-                <p class="text-sm font-semibold text-slate-800">Nutritious &amp; balanced</p>
-                <p class="text-xs text-slate-500 mt-0.5">Good for growing kids</p>
-              </div>
+            <p class="text-slate-300 text-sm leading-relaxed mb-6">Perfect for parents who need a few hours of reliable, loving care — appointments, errands, or just a quiet afternoon for yourself.</p>
+            <ul class="space-y-3">
+              <li class="flex items-center gap-3 text-sm text-white"><span class="w-5 h-5 rounded-full bg-sky-500/30 flex items-center justify-center text-sky-300 text-xs flex-shrink-0">✓</span>Up to 6 hours of supervised care</li>
+              <li class="flex items-center gap-3 text-sm text-white"><span class="w-5 h-5 rounded-full bg-sky-500/30 flex items-center justify-center text-sky-300 text-xs flex-shrink-0">✓</span>Outdoor sports — cycling, badminton, cricket</li>
+              <li class="flex items-center gap-3 text-sm text-white"><span class="w-5 h-5 rounded-full bg-sky-500/30 flex items-center justify-center text-sky-300 text-xs flex-shrink-0">✓</span>Snacks & hydration included</li>
+              <li class="flex items-center gap-3 text-sm text-white"><span class="w-5 h-5 rounded-full bg-sky-500/30 flex items-center justify-center text-sky-300 text-xs flex-shrink-0">✓</span>Grandparent supervision & care</li>
+              <li class="flex items-center gap-3 text-sm text-white"><span class="w-5 h-5 rounded-full bg-sky-500/30 flex items-center justify-center text-sky-300 text-xs flex-shrink-0">✓</span>No prior booking required (subject to availability)</li>
+            </ul>
+            <a href="https://wa.me/918108201967?text=Hi%2C%20I%27d%20like%20to%20book%20the%20FlexiCare%20Half-Day%20session%20%28Rs.399%29."
+               class="mt-7 flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-bold text-white pulse-blue"
+               style="background: linear-gradient(135deg,#0ea5e9,#0284c7);">
+              Book Half-Day · ₹399
+            </a>
+          </div>
+
+          <div class="space-y-4">
+            <div class="rounded-2xl p-5 bg-white/8 border border-white/10 backdrop-blur-sm">
+              <p class="font-semibold text-white text-sm mb-1.5">🕐 Flexible Timing</p>
+              <p class="text-slate-400 text-xs leading-relaxed">Choose your preferred time window within our 8 AM – 7 PM operating hours. Morning, afternoon — whatever suits you.</p>
             </div>
-            <div class="flex items-start gap-2.5 bg-white rounded-xl p-3 border border-amber-100">
-              <span class="text-red-400 font-bold text-lg leading-none mt-0.5">✗</span>
-              <div>
-                <p class="text-sm font-semibold text-slate-800">No outside food</p>
-                <p class="text-xs text-slate-500 mt-0.5">For hygiene &amp; safety</p>
-              </div>
+            <div class="rounded-2xl p-5 bg-white/8 border border-white/10 backdrop-blur-sm">
+              <p class="font-semibold text-white text-sm mb-1.5">🚴 Sports Activities Included</p>
+              <p class="text-slate-400 text-xs leading-relaxed">Children get hands-on time with cycling, badminton and cricket — building energy, fitness and teamwork skills.</p>
             </div>
-            <div class="flex items-start gap-2.5 bg-white rounded-xl p-3 border border-amber-100">
-              <span class="text-green-500 font-bold text-lg leading-none mt-0.5">✓</span>
-              <div>
-                <p class="text-sm font-semibold text-slate-800">Send from home too</p>
-                <p class="text-xs text-slate-500 mt-0.5">If you prefer</p>
-              </div>
+            <div class="rounded-2xl p-5 bg-white/8 border border-white/10 backdrop-blur-sm">
+              <p class="font-semibold text-white text-sm mb-1.5">💡 Ideal For</p>
+              <p class="text-slate-400 text-xs leading-relaxed">Doctor appointments, grocery runs, work calls, personal errands — any time you need just a few reliable hours.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Right: safety rules -->
-      <div class="fade-in" style="transition-delay:.12s">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 text-red-600 text-xs font-semibold mb-4 border border-red-100">
-          🛡️ Safety & Security Rules
-        </div>
-        <h2 class="font-display text-3xl font-bold text-slate-900">
-          Your child's safety is <em class="text-brand">non-negotiable.</em>
-        </h2>
-        <p class="mt-3 text-slate-600 leading-relaxed">
-          We follow strict safety guidelines so every parent can leave in the morning with a calm mind.
-        </p>
+      <!-- Panel: Full Day -->
+      <div id="panel-day" class="tab-panel fade-in">
+        <div class="grid lg:grid-cols-2 gap-8 items-center">
+          <div class="rounded-3xl p-8 border-2 border-amber-400/50 bg-white/5 backdrop-blur-sm relative overflow-hidden">
+            <div class="absolute top-4 right-4 px-3 py-1 rounded-full text-[10px] font-extrabold tracking-wide" style="background:#fbbf24; color:#78350f;">BEST FLEXI VALUE</div>
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl" style="background: linear-gradient(135deg,#f97316,#ea580c);">🌟</div>
+              <div>
+                <p class="text-amber-300 text-xs font-bold uppercase tracking-widest">Full-Day FlexiCare</p>
+                <div class="flex items-end gap-1.5 mt-1">
+                  <span class="font-display text-5xl font-bold text-white">₹599</span>
+                  <span class="text-slate-400 text-sm mb-1.5">/ day</span>
+                </div>
+              </div>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed mb-6">One complete day of care — meals, activities, sports and grandparent love — with zero monthly commitment. Drop in when you need it.</p>
+            <ul class="space-y-3">
+              <li class="flex items-center gap-3 text-sm text-white"><span class="w-5 h-5 rounded-full bg-amber-500/30 flex items-center justify-center text-amber-300 text-xs flex-shrink-0">✓</span>Full day care (8 AM – 7 PM)</li>
+              <li class="flex items-center gap-3 text-sm text-white"><span class="w-5 h-5 rounded-full bg-amber-500/30 flex items-center justify-center text-amber-300 text-xs flex-shrink-0">✓</span>Home-cooked lunch + snacks</li>
+              <li class="flex items-center gap-3 text-sm text-white"><span class="w-5 h-5 rounded-full bg-amber-500/30 flex items-center justify-center text-amber-300 text-xs flex-shrink-0">✓</span>Outdoor sports — cycling, badminton, cricket</li>
+              <li class="flex items-center gap-3 text-sm text-white"><span class="w-5 h-5 rounded-full bg-amber-500/30 flex items-center justify-center text-amber-300 text-xs flex-shrink-0">✓</span>Play, learning & activity sessions</li>
+              <li class="flex items-center gap-3 text-sm text-white"><span class="w-5 h-5 rounded-full bg-amber-500/30 flex items-center justify-center text-amber-300 text-xs flex-shrink-0">✓</span>Nap time & emotional support</li>
+              <li class="flex items-center gap-3 text-sm text-white"><span class="w-5 h-5 rounded-full bg-amber-500/30 flex items-center justify-center text-amber-300 text-xs flex-shrink-0">✓</span>Parent updates throughout the day</li>
+            </ul>
+            <a href="https://wa.me/918108201967?text=Hi%2C%20I%27d%20like%20to%20book%20the%20FlexiCare%20Full-Day%20session%20%28Rs.599%29."
+               class="mt-7 flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-bold text-white pulse-badge"
+               style="background: linear-gradient(135deg,#f97316,#ea580c);">
+              Book Full Day · ₹599
+            </a>
+          </div>
 
-        <ul class="mt-6 space-y-4">
-          <li class="flex items-start gap-3.5">
-            <div class="icon-ring bg-red-50 border border-red-100 text-lg">🚫</div>
-            <div>
-              <p class="font-semibold text-slate-800 text-sm">No outsider allowed for pick-up/drop</p>
-              <p class="text-xs text-slate-500 mt-1">Only parents or pre-approved family members can pick up or drop a child. No exceptions.</p>
+          <div class="space-y-4">
+            <div class="rounded-2xl p-5 bg-white/8 border border-white/10 backdrop-blur-sm">
+              <p class="font-semibold text-white text-sm mb-1.5">🗓️ No Monthly Lock-In</p>
+              <p class="text-slate-400 text-xs leading-relaxed">Use it once, use it every week — entirely up to you. Pay only for the days you actually need care. No recurring charges.</p>
             </div>
-          </li>
-          <li class="flex items-start gap-3.5">
-            <div class="icon-ring bg-amber-50 border border-amber-100 text-lg">📵</div>
-            <div>
-              <p class="font-semibold text-slate-800 text-sm">No outside visitors during care hours</p>
-              <p class="text-xs text-slate-500 mt-1">The home is closed to outside people while children are present — their safety comes first.</p>
+            <div class="rounded-2xl p-5 bg-white/8 border border-white/10 backdrop-blur-sm">
+              <p class="font-semibold text-white text-sm mb-1.5">🍽️ Full Meals Included</p>
+              <p class="text-slate-400 text-xs leading-relaxed">Unlike the half-day session, the full-day package includes a complete home-cooked lunch along with morning and evening snacks.</p>
             </div>
-          </li>
-          <li class="flex items-start gap-3.5">
-            <div class="icon-ring bg-green-50 border border-green-100 text-lg">🧼</div>
-            <div>
-              <p class="font-semibold text-slate-800 text-sm">Hygiene & cleanliness maintained</p>
-              <p class="text-xs text-slate-500 mt-1">Regular handwashing, clean play areas, and fresh meals — we take hygiene very seriously.</p>
+            <div class="rounded-2xl p-5 bg-white/8 border border-white/10 backdrop-blur-sm">
+              <p class="font-semibold text-white text-sm mb-1.5">💡 Ideal For</p>
+              <p class="text-slate-400 text-xs leading-relaxed">Office days, travel, weekend plans, special occasions — whenever you need a full day of trusted care without a monthly plan.</p>
             </div>
-          </li>
-          <li class="flex items-start gap-3.5">
-            <div class="icon-ring bg-blue-50 border border-blue-100 text-lg">📞</div>
-            <div>
-              <p class="font-semibold text-slate-800 text-sm">Immediate parent communication</p>
-              <p class="text-xs text-slate-500 mt-1">If a child feels unwell or upset, parents are contacted right away — no delays, no surprises.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel: Custom -->
+      <div id="panel-custom" class="tab-panel fade-in">
+        <div class="rounded-3xl p-8 sm:p-10 border border-white/15 bg-white/5 backdrop-blur-sm text-center">
+          <div class="text-5xl mb-5">🛠️</div>
+          <h3 class="font-display text-3xl font-bold text-white mb-3">Build Your Own Plan</h3>
+          <p class="text-slate-300 max-w-xl mx-auto leading-relaxed mb-8">
+            Every family is different. If you need care 2–3 days a week, specific hours, or a recurring weekly schedule — just reach out. We'll put together a custom plan that works for your routine and your budget.
+          </p>
+          <div class="grid sm:grid-cols-3 gap-5 mb-10 text-left">
+            <div class="rounded-2xl p-5 bg-white/8 border border-white/10">
+              <div class="text-2xl mb-3">📅</div>
+              <p class="font-semibold text-white text-sm">Choose Your Days</p>
+              <p class="text-slate-400 text-xs mt-1.5 leading-relaxed">2 days/week, 3 days/week, or specific days — totally flexible.</p>
             </div>
-          </li>
-          <li class="flex items-start gap-3.5">
-            <div class="icon-ring bg-purple-50 border border-purple-100 text-lg">💛</div>
-            <div>
-              <p class="font-semibold text-slate-800 text-sm">Gentle discipline — no harsh behaviour</p>
-              <p class="text-xs text-slate-500 mt-1">We handle children with patience, kindness and love. No shouting, no fear-based correction.</p>
+            <div class="rounded-2xl p-5 bg-white/8 border border-white/10">
+              <div class="text-2xl mb-3">🕐</div>
+              <p class="font-semibold text-white text-sm">Choose Your Hours</p>
+              <p class="text-slate-400 text-xs mt-1.5 leading-relaxed">Morning slot, afternoon slot, or mix — within our operating hours.</p>
             </div>
-          </li>
-        </ul>
+            <div class="rounded-2xl p-5 bg-white/8 border border-white/10">
+              <div class="text-2xl mb-3">💰</div>
+              <p class="font-semibold text-white text-sm">Negotiable Pricing</p>
+              <p class="text-slate-400 text-xs mt-1.5 leading-relaxed">Custom plans get customised rates. We work around your needs.</p>
+            </div>
+          </div>
+          <a href="https://wa.me/918108201967?text=Hi%2C%20I%27d%20like%20to%20discuss%20a%20custom%20FlexiCare%20plan%20for%20my%20child."
+             class="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-white text-base"
+             style="background: linear-gradient(135deg,#7c3aed,#6d28d9); box-shadow: 0 8px 24px rgba(124,58,237,.3);">
+            💬 Discuss Custom Plan on WhatsApp
+          </a>
+        </div>
       </div>
 
     </div>
+
+    <!-- Sports strip -->
+    <div class="mt-16 fade-in">
+      <p class="text-center text-slate-400 text-xs font-bold uppercase tracking-widest mb-6">🏅 FlexiCare Outdoor Sports — Available with Every Session</p>
+      <div class="grid sm:grid-cols-3 gap-5">
+        <div class="sport-card rounded-2xl p-6 text-center border border-white/10" style="background: linear-gradient(135deg, rgba(34,197,94,.15), rgba(16,185,129,.08));">
+          <div class="text-4xl mb-3">🚴</div>
+          <h4 class="font-bold text-white text-sm">Cycling</h4>
+          <p class="text-slate-400 text-xs mt-1.5 leading-relaxed">Balance, coordination and outdoor confidence — kids love riding around!</p>
+        </div>
+        <div class="sport-card rounded-2xl p-6 text-center border border-white/10" style="background: linear-gradient(135deg, rgba(251,191,36,.12), rgba(249,115,22,.08));">
+          <div class="text-4xl mb-3">🏸</div>
+          <h4 class="font-bold text-white text-sm">Badminton</h4>
+          <p class="text-slate-400 text-xs mt-1.5 leading-relaxed">Hand-eye coordination, agility and fun — a perfect active game for kids.</p>
+        </div>
+        <div class="sport-card rounded-2xl p-6 text-center border border-white/10" style="background: linear-gradient(135deg, rgba(99,102,241,.15), rgba(59,130,246,.08));">
+          <div class="text-4xl mb-3">🏏</div>
+          <h4 class="font-bold text-white text-sm">Cricket</h4>
+          <p class="text-slate-400 text-xs mt-1.5 leading-relaxed">Teamwork, strategy and India's favourite sport — played safely with supervision.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Compare note -->
+    <div class="mt-10 rounded-2xl p-5 border border-white/10 bg-white/5 backdrop-blur-sm text-center fade-in">
+      <p class="text-slate-300 text-sm">
+        <span class="text-white font-semibold">FlexiCare vs Monthly Plans:</span> FlexiCare is ideal for occasional needs. For regular full-time care, our monthly plans at ₹5,000–₹6,000 offer much better value.
+        <a href="#pricing" class="text-sky-400 hover:underline ml-1">View monthly plans →</a>
+      </p>
+    </div>
+
   </div>
 </section>
 
 
 <!-- ══════════════════════════════════════════
-  EMOTIONAL TRUST — "A HOME AWAY FROM HOME"
+  EMOTIONAL TRUST
 ═══════════════════════════════════════════ -->
 <section class="py-20 sm:py-24 bg-gradient-to-br from-amber-50 to-orange-50 border-y border-amber-100">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
     <div class="text-center mb-14 fade-in">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-amber-200 text-amber-700 text-xs font-semibold mb-3">
-        ❤️ A Home Away From Home
-      </div>
-      <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900">
-        Why kids feel <em class="text-brand">happy here</em>
-      </h2>
-      <p class="mt-3 text-slate-500 max-w-xl mx-auto">
-        Children don't just survive the day here — they genuinely look forward to coming. Here's why.
-      </p>
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-amber-200 text-amber-700 text-xs font-semibold mb-3">❤️ A Home Away From Home</div>
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900">Why kids feel <em class="text-brand">happy here</em></h2>
+      <p class="mt-3 text-slate-500 max-w-xl mx-auto">Children don't just survive the day here — they genuinely look forward to coming. Here's why.</p>
     </div>
-
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-      <div class="rounded-2xl p-7 bg-white border border-amber-100 lift fade-in">
-        <div class="text-4xl mb-4">👵</div>
-        <h3 class="font-semibold text-lg text-slate-900">Grandparent love is irreplaceable</h3>
-        <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-          Nana and Nani have a special kind of patience and warmth that no professional setting can replicate. Your child receives genuine, deep affection — every single day.
-        </p>
-      </div>
-
-      <div class="rounded-2xl p-7 bg-white border border-amber-100 lift fade-in" style="transition-delay:.08s">
-        <div class="text-4xl mb-4">🏡</div>
-        <h3 class="font-semibold text-lg text-slate-900">Familiar home environment</h3>
-        <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-          Sofas, kitchen smells, familiar routines — children feel safe and comfortable because the home environment mirrors their own. No cold institutional space.
-        </p>
-      </div>
-
-      <div class="rounded-2xl p-7 bg-white border border-amber-100 lift fade-in" style="transition-delay:.16s">
-        <div class="text-4xl mb-4">🎯</div>
-        <h3 class="font-semibold text-lg text-slate-900">Individual attention</h3>
-        <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-          With very few children, each child gets noticed. Their moods, preferences, fears, and joys are understood and responded to personally.
-        </p>
-      </div>
-
-      <div class="rounded-2xl p-7 bg-white border border-amber-100 lift fade-in">
-        <div class="text-4xl mb-4">🤝</div>
-        <h3 class="font-semibold text-lg text-slate-900">Building friendships</h3>
-        <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-          With a small group, children build real bonds. They learn to share, take turns, and play together — creating friendships that feel like family.
-        </p>
-      </div>
-
-      <div class="rounded-2xl p-7 bg-white border border-amber-100 lift fade-in" style="transition-delay:.08s">
-        <div class="text-4xl mb-4">🛌</div>
-        <h3 class="font-semibold text-lg text-slate-900">Comfort when they need it</h3>
-        <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-          When children cry, feel tired or need a hug — they get one. No child is left to cry alone. Emotional security is our foundation.
-        </p>
-      </div>
-
-      <div class="rounded-2xl p-7 bg-white border border-amber-100 lift fade-in" style="transition-delay:.16s">
-        <div class="text-4xl mb-4">⚡</div>
-        <h3 class="font-semibold text-lg text-slate-900">Energy, curiosity & joy</h3>
-        <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-          Free play, exploration and laughter are part of every day. Children here come home tired in the best way — full of stories to tell you.
-        </p>
-      </div>
-
+      <div class="rounded-2xl p-7 bg-white border border-amber-100 lift fade-in"><div class="text-4xl mb-4">👵</div><h3 class="font-semibold text-lg text-slate-900">Grandparent love is irreplaceable</h3><p class="mt-2 text-sm text-slate-600 leading-relaxed">Nana and Nani have a special kind of patience and warmth that no professional setting can replicate. Your child receives genuine, deep affection — every single day.</p></div>
+      <div class="rounded-2xl p-7 bg-white border border-amber-100 lift fade-in" style="transition-delay:.08s"><div class="text-4xl mb-4">🏡</div><h3 class="font-semibold text-lg text-slate-900">Familiar home environment</h3><p class="mt-2 text-sm text-slate-600 leading-relaxed">Sofas, kitchen smells, familiar routines — children feel safe and comfortable because the home environment mirrors their own. No cold institutional space.</p></div>
+      <div class="rounded-2xl p-7 bg-white border border-amber-100 lift fade-in" style="transition-delay:.16s"><div class="text-4xl mb-4">🎯</div><h3 class="font-semibold text-lg text-slate-900">Individual attention</h3><p class="mt-2 text-sm text-slate-600 leading-relaxed">With very few children, each child gets noticed. Their moods, preferences, fears, and joys are understood and responded to personally.</p></div>
+      <div class="rounded-2xl p-7 bg-white border border-amber-100 lift fade-in"><div class="text-4xl mb-4">🤝</div><h3 class="font-semibold text-lg text-slate-900">Building friendships</h3><p class="mt-2 text-sm text-slate-600 leading-relaxed">With a small group, children build real bonds. They learn to share, take turns, and play together — creating friendships that feel like family.</p></div>
+      <div class="rounded-2xl p-7 bg-white border border-amber-100 lift fade-in" style="transition-delay:.08s"><div class="text-4xl mb-4">🛌</div><h3 class="font-semibold text-lg text-slate-900">Comfort when they need it</h3><p class="mt-2 text-sm text-slate-600 leading-relaxed">When children cry, feel tired or need a hug — they get one. No child is left to cry alone. Emotional security is our foundation.</p></div>
+      <div class="rounded-2xl p-7 bg-white border border-amber-100 lift fade-in" style="transition-delay:.16s"><div class="text-4xl mb-4">⚡</div><h3 class="font-semibold text-lg text-slate-900">Energy, curiosity & joy</h3><p class="mt-2 text-sm text-slate-600 leading-relaxed">Free play, exploration and laughter are part of every day. Children here come home tired in the best way — full of stories to tell you.</p></div>
     </div>
   </div>
 </section>
@@ -601,35 +587,64 @@
   PRICING
 ═══════════════════════════════════════════ -->
 <section id="pricing" class="py-20 sm:py-24">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-14 fade-in">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-700 text-xs font-semibold mb-3">
-        💰 Simple, Transparent Pricing
-      </div>
-      <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900">
-        Affordable care, <em class="text-brand">no hidden costs.</em>
-      </h2>
-      <p class="mt-3 text-slate-500 max-w-xl mx-auto">
-        Choose the plan that suits your family. All plans include home-cooked meals, daily updates and full care — no hidden charges.
-      </p>
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-700 text-xs font-semibold mb-3">💰 Simple, Transparent Pricing</div>
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900">Plans for every family, <em class="text-brand">no hidden costs.</em></h2>
+      <p class="mt-3 text-slate-500 max-w-xl mx-auto">From occasional drop-ins to full-time monthly care — choose what works for you.</p>
     </div>
 
-    <!-- Plans -->
-    <div class="grid md:grid-cols-2 gap-8 items-start">
+    <!-- Plans grid: 3 columns on desktop -->
+    <div class="grid md:grid-cols-3 gap-7 items-start">
+
+      <!-- FlexiCare Card -->
+      <div class="rounded-3xl p-7 border-2 border-sky-300/60 bg-gradient-to-br from-sky-50 to-blue-50 lift fade-in shadow-lg shadow-sky-100 relative overflow-hidden">
+        <div class="absolute top-4 right-4 px-2.5 py-1 rounded-full text-[10px] font-extrabold bg-sky-500 text-white tracking-wide">NEW</div>
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-100 text-sky-700 text-xs font-semibold border border-sky-200 mb-4">⚡ FlexiCare — Drop-In</div>
+        <p class="text-slate-600 text-sm mb-5">No commitment. Pay per visit. Perfect for occasional care needs.</p>
+        <div class="space-y-4 mb-6">
+          <div class="flex items-center justify-between bg-white rounded-xl px-4 py-3 border border-sky-100 shadow-sm">
+            <div>
+              <p class="font-semibold text-slate-800 text-sm">⏰ Half-Day</p>
+              <p class="text-xs text-slate-500">Up to 6 hours · Snacks + sports</p>
+            </div>
+            <div class="text-right">
+              <p class="font-display font-bold text-2xl text-sky-600">₹399</p>
+              <p class="text-xs text-slate-400">per session</p>
+            </div>
+          </div>
+          <div class="flex items-center justify-between bg-white rounded-xl px-4 py-3 border border-sky-100 shadow-sm">
+            <div>
+              <p class="font-semibold text-slate-800 text-sm">🌟 Full Day</p>
+              <p class="text-xs text-slate-500">8 AM–7 PM · Meals + sports</p>
+            </div>
+            <div class="text-right">
+              <p class="font-display font-bold text-2xl text-sky-600">₹599</p>
+              <p class="text-xs text-slate-400">per day</p>
+            </div>
+          </div>
+        </div>
+        <ul class="space-y-2.5 mb-7">
+          <li class="flex items-center gap-2 text-sm text-slate-700"><span class="text-sky-500 font-bold">✓</span> Outdoor sports — cycling, badminton, cricket</li>
+          <li class="flex items-center gap-2 text-sm text-slate-700"><span class="text-sky-500 font-bold">✓</span> Grandparent supervision</li>
+          <li class="flex items-center gap-2 text-sm text-slate-700"><span class="text-sky-500 font-bold">✓</span> Safe & secure environment</li>
+          <li class="flex items-center gap-2 text-sm text-slate-700"><span class="text-sky-500 font-bold">✓</span> Flexible timing within hours</li>
+          <li class="flex items-center gap-2 text-sm text-slate-700"><span class="text-sky-500 font-bold">✓</span> Custom plans available</li>
+        </ul>
+        <a href="#flexicare" class="flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-sky-500 text-white font-semibold hover:bg-sky-600 transition-colors shadow-md shadow-sky-200">
+          ✨ Learn More About FlexiCare
+        </a>
+      </div>
 
       <!-- Standard Plan -->
-      <div class="rounded-3xl p-8 bg-white border-2 border-amber-200 lift fade-in shadow-sm shadow-amber-100">
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold border border-amber-200 mb-4">
-          📋 Standard Plan
-        </div>
+      <div class="rounded-3xl p-7 bg-white border-2 border-amber-200 lift fade-in shadow-sm shadow-amber-100" style="transition-delay:.1s">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold border border-amber-200 mb-4">📋 Standard Monthly</div>
         <div class="flex items-end gap-1.5 mt-2">
           <span class="font-display text-5xl font-bold text-slate-900">₹6,000</span>
           <span class="text-slate-400 text-sm mb-2">/ child / month</span>
         </div>
-        <p class="mt-3 text-sm text-slate-500">Full day care, Monday to Saturday, 8 AM – 7 PM. Everything included — no extras.</p>
-
-        <ul class="mt-6 space-y-3">
+        <p class="mt-3 text-sm text-slate-500 mb-6">Full day care, Monday to Saturday, 8 AM – 7 PM. Everything included — no extras.</p>
+        <ul class="space-y-3 mb-8">
           <li class="flex items-center gap-2.5 text-sm text-slate-700"><span class="text-brand font-bold">✓</span> Full-day care (8 AM – 7 PM)</li>
           <li class="flex items-center gap-2.5 text-sm text-slate-700"><span class="text-brand font-bold">✓</span> Play, learning & outdoor activities</li>
           <li class="flex items-center gap-2.5 text-sm text-slate-700"><span class="text-brand font-bold">✓</span> Daily parent updates</li>
@@ -637,8 +652,7 @@
           <li class="flex items-center gap-2.5 text-sm text-slate-700"><span class="text-brand font-bold">✓</span> Grandparent supervision & love</li>
           <li class="flex items-center gap-2.5 text-sm text-slate-700"><span class="text-brand font-bold">✓</span> Home-cooked meals included</li>
         </ul>
-
-        <div class="mt-8 flex flex-col gap-2.5">
+        <div class="flex flex-col gap-2.5">
           <a href="https://wa.me/918108201967?text=Hi%2C%20I%27m%20interested%20in%20the%20Standard%20Plan%20at%20Nurvi%27s%20Baby%20Day%20Care."
              class="flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-brand text-white font-semibold hover:bg-brand-600 transition-colors">
             💬 WhatsApp to Enroll
@@ -651,64 +665,42 @@
       </div>
 
       <!-- Special Offer Plan -->
-      <div class="rounded-3xl p-8 bg-gradient-to-br from-brand to-orange-600 border-2 border-orange-400 lift fade-in shadow-xl shadow-orange-200 relative overflow-hidden pulse-badge" style="transition-delay:.1s">
-
-        <!-- Offer ribbon -->
+      <div class="rounded-3xl p-7 bg-gradient-to-br from-brand to-orange-600 border-2 border-orange-400 lift fade-in shadow-xl shadow-orange-200 relative overflow-hidden pulse-badge" style="transition-delay:.2s">
         <div class="absolute top-5 right-0 bg-yellow-400 text-yellow-900 text-[10px] font-extrabold px-4 py-1 tracking-wide shadow-sm"
-             style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 8% 50%);">
-          BEST VALUE
-        </div>
-
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 text-white text-xs font-semibold mb-4">
-          🎉 Special Family & Referral Offer
-        </div>
+             style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 8% 50%);">BEST VALUE</div>
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 text-white text-xs font-semibold mb-4">🎉 Family & Referral Offer</div>
         <div class="flex items-end gap-1.5 mt-2">
           <span class="font-display text-5xl font-bold text-white">₹5,000</span>
           <span class="text-orange-100 text-sm mb-2">/ child / month</span>
         </div>
-        <div class="mt-1 inline-flex items-center gap-1.5 text-xs text-orange-100">
+        <div class="mt-1 inline-flex items-center gap-1.5 text-xs text-orange-100 mb-4">
           <span class="line-through">₹6,000</span>
           <span class="bg-yellow-400 text-yellow-900 px-2 py-0.5 rounded-full font-bold">Save ₹1,000!</span>
         </div>
-
-        <p class="mt-3 text-sm text-orange-100">This special rate applies in two situations:</p>
-
-        <div class="mt-5 space-y-4">
-          <!-- Condition 1 -->
+        <div class="space-y-3 mb-5">
           <div class="bg-white/15 rounded-2xl p-4 border border-white/20">
             <p class="font-semibold text-white text-sm">👨‍👩‍👧‍👦 Sibling Enrollment</p>
-            <p class="text-orange-100 text-xs mt-1.5 leading-relaxed">
-              If the same parent enrolls <strong class="text-white">2 or more children</strong>, both children get the ₹5,000 rate — saving ₹2,000 every month.
-            </p>
+            <p class="text-orange-100 text-xs mt-1.5 leading-relaxed">Enroll 2 or more siblings — both get the ₹5,000 rate, saving ₹2,000/month.</p>
           </div>
-          <!-- Condition 2 -->
           <div class="bg-white/15 rounded-2xl p-4 border border-white/20">
             <p class="font-semibold text-white text-sm">💌 Referral Offer</p>
-            <p class="text-orange-100 text-xs mt-1.5 leading-relaxed">
-              Refer a new parent to us. <strong class="text-white">Both you and the referred parent</strong> pay only ₹5,000/month — a win for everyone!
-            </p>
+            <p class="text-orange-100 text-xs mt-1.5 leading-relaxed">Refer a new parent — both you and the referred parent pay only ₹5,000/month.</p>
           </div>
         </div>
-
-        <ul class="mt-6 space-y-2">
+        <ul class="space-y-2 mb-7">
           <li class="flex items-center gap-2 text-sm text-white"><span class="font-bold">✓</span> Everything in Standard Plan</li>
           <li class="flex items-center gap-2 text-sm text-white"><span class="font-bold">✓</span> Priority enrollment</li>
           <li class="flex items-center gap-2 text-sm text-white"><span class="font-bold">✓</span> Flexible timings (on request)</li>
         </ul>
-
         <a href="https://wa.me/918108201967?text=Hi%2C%20I%27m%20interested%20in%20the%20Special%20Family%20Offer%20at%20Nurvi%27s%20Baby%20Day%20Care."
-           class="mt-8 flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white text-brand font-bold hover:bg-amber-50 transition-colors shadow-md">
+           class="flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white text-brand font-bold hover:bg-amber-50 transition-colors shadow-md">
           Claim This Offer
         </a>
       </div>
 
     </div>
 
-    <!-- Note -->
-    <p class="text-center text-xs text-slate-400 mt-6">
-      All prices are per child per month. Plans are subject to availability — contact us to check enrollment slots.
-    </p>
-
+    <p class="text-center text-xs text-slate-400 mt-7">All prices per child. Plans subject to availability — contact us to check enrollment slots.</p>
   </div>
 </section>
 
@@ -718,89 +710,45 @@
 ═══════════════════════════════════════════ -->
 <section id="faq" class="py-20 sm:py-24 bg-amber-50/60 border-t border-amber-100">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-
     <div class="text-center mb-14 fade-in">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-amber-200 text-amber-700 text-xs font-semibold mb-3">
-        ❓ Frequently Asked Questions
-      </div>
-      <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900">
-        Questions parents <em class="text-brand">always ask</em>
-      </h2>
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-amber-200 text-amber-700 text-xs font-semibold mb-3">❓ Frequently Asked Questions</div>
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900">Questions parents <em class="text-brand">always ask</em></h2>
       <p class="mt-3 text-slate-500">Honest answers — because trust matters.</p>
     </div>
 
     <div class="space-y-4" id="faq-list">
-
       <details class="group rounded-2xl bg-white border border-amber-100 shadow-sm lift fade-in overflow-hidden">
-        <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer font-semibold text-slate-800 text-sm list-none select-none">
-          <span>Is this a daycare centre or a home-based service?</span>
-          <span class="group-open:rotate-180 transition-transform text-brand text-xl font-light leading-none">⌄</span>
-        </summary>
-        <div class="px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-amber-50">
-          This is completely home-based care — not a commercial daycare centre. Your child comes to our actual home in Aadharwadi, Kalyan West, and spends the day in a real family environment. It is more like staying at a relative's home than going to a daycare.
-        </div>
+        <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer font-semibold text-slate-800 text-sm list-none select-none"><span>Is this a daycare centre or a home-based service?</span><span class="group-open:rotate-180 transition-transform text-brand text-xl font-light leading-none">⌄</span></summary>
+        <div class="px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-amber-50">This is completely home-based care — not a commercial daycare centre. Your child comes to our actual home in Aadharwadi, Kalyan West, and spends the day in a real family environment. It is more like staying at a relative's home than going to a daycare.</div>
       </details>
-
       <details class="group rounded-2xl bg-white border border-amber-100 shadow-sm lift fade-in overflow-hidden" style="transition-delay:.05s">
-        <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer font-semibold text-slate-800 text-sm list-none select-none">
-          <span>Who takes care of the children?</span>
-          <span class="group-open:rotate-180 transition-transform text-brand text-xl font-light leading-none">⌄</span>
-        </summary>
-        <div class="px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-amber-50">
-          The children are cared for by grandparents — patient, experienced, and full of love. This is something very few childcare options can offer. They treat every child with the same warmth and attention they would give their own grandchild.
-        </div>
+        <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer font-semibold text-slate-800 text-sm list-none select-none"><span>Who takes care of the children?</span><span class="group-open:rotate-180 transition-transform text-brand text-xl font-light leading-none">⌄</span></summary>
+        <div class="px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-amber-50">The children are cared for by grandparents — patient, experienced, and full of love. This is something very few childcare options can offer. They treat every child with the same warmth and attention they would give their own grandchild.</div>
       </details>
-
       <details class="group rounded-2xl bg-white border border-amber-100 shadow-sm lift fade-in overflow-hidden" style="transition-delay:.1s">
-        <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer font-semibold text-slate-800 text-sm list-none select-none">
-          <span>How many children are handled at a time?</span>
-          <span class="group-open:rotate-180 transition-transform text-brand text-xl font-light leading-none">⌄</span>
-        </summary>
-        <div class="px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-amber-50">
-          We intentionally keep the number of children very small so that each child receives personal attention and care. This is one of our key promises — your child will never be lost in a crowd here.
-        </div>
+        <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer font-semibold text-slate-800 text-sm list-none select-none"><span>How does FlexiCare work? Can I book just one day?</span><span class="group-open:rotate-180 transition-transform text-brand text-xl font-light leading-none">⌄</span></summary>
+        <div class="px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-amber-50">Yes! FlexiCare is our drop-in package designed for parents who don't need daily or monthly care. You can book a half-day session (up to 6 hours) for ₹399, or a full day for ₹599 — with no monthly commitment. Just WhatsApp us the night before or morning of, subject to availability. Children get outdoor sports (cycling, badminton, cricket) plus all the warmth and safety of our home.</div>
       </details>
-
       <details class="group rounded-2xl bg-white border border-amber-100 shadow-sm lift fade-in overflow-hidden" style="transition-delay:.15s">
-        <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer font-semibold text-slate-800 text-sm list-none select-none">
-          <span>What safety measures are followed?</span>
-          <span class="group-open:rotate-180 transition-transform text-brand text-xl font-light leading-none">⌄</span>
-        </summary>
-        <div class="px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-amber-50">
-          Only pre-approved parents or family members can pick up or drop a child — no outsiders are allowed. No outside visitors enter the home during care hours. Food is freshly cooked at home. We follow hygiene routines and keep the space clean and child-safe at all times.
-        </div>
+        <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer font-semibold text-slate-800 text-sm list-none select-none"><span>How many children are handled at a time?</span><span class="group-open:rotate-180 transition-transform text-brand text-xl font-light leading-none">⌄</span></summary>
+        <div class="px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-amber-50">We intentionally keep the number of children very small so that each child receives personal attention and care. This is one of our key promises — your child will never be lost in a crowd here.</div>
       </details>
-
       <details class="group rounded-2xl bg-white border border-amber-100 shadow-sm lift fade-in overflow-hidden" style="transition-delay:.2s">
-        <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer font-semibold text-slate-800 text-sm list-none select-none">
-          <span>What if my child cries or feels uncomfortable?</span>
-          <span class="group-open:rotate-180 transition-transform text-brand text-xl font-light leading-none">⌄</span>
-        </summary>
-        <div class="px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-amber-50">
-          This is completely normal, especially in the first few days. We give each child time to settle in with warmth, patience and gentle reassurance. We never force a child or leave them to cry alone. If needed, we will call you right away. Most children settle in within a week and start looking forward to coming here.
-        </div>
+        <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer font-semibold text-slate-800 text-sm list-none select-none"><span>What safety measures are followed?</span><span class="group-open:rotate-180 transition-transform text-brand text-xl font-light leading-none">⌄</span></summary>
+        <div class="px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-amber-50">Only pre-approved parents or family members can pick up or drop a child — no outsiders are allowed. No outside visitors enter the home during care hours. Food is freshly cooked at home. We follow hygiene routines and keep the space clean and child-safe at all times.</div>
       </details>
-
       <details class="group rounded-2xl bg-white border border-amber-100 shadow-sm lift fade-in overflow-hidden" style="transition-delay:.25s">
-        <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer font-semibold text-slate-800 text-sm list-none select-none">
-          <span>Can parents visit before admission?</span>
-          <span class="group-open:rotate-180 transition-transform text-brand text-xl font-light leading-none">⌄</span>
-        </summary>
-        <div class="px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-amber-50">
-          Absolutely, yes — we encourage it! We would love for you to visit, meet us, see the home, and ask all your questions before making a decision. Call or WhatsApp us to schedule a visit. We are always happy to meet you and your child.
-        </div>
+        <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer font-semibold text-slate-800 text-sm list-none select-none"><span>What if my child cries or feels uncomfortable?</span><span class="group-open:rotate-180 transition-transform text-brand text-xl font-light leading-none">⌄</span></summary>
+        <div class="px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-amber-50">This is completely normal, especially in the first few days. We give each child time to settle in with warmth, patience and gentle reassurance. We never force a child or leave them to cry alone. If needed, we will call you right away. Most children settle in within a week and start looking forward to coming here.</div>
       </details>
-
       <details class="group rounded-2xl bg-white border border-amber-100 shadow-sm lift fade-in overflow-hidden" style="transition-delay:.3s">
-        <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer font-semibold text-slate-800 text-sm list-none select-none">
-          <span>How are emergencies handled?</span>
-          <span class="group-open:rotate-180 transition-transform text-brand text-xl font-light leading-none">⌄</span>
-        </summary>
-        <div class="px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-amber-50">
-          Parents are called immediately. We do not wait or delay. If a child is unwell, injured or upset, we inform the parents right away and take appropriate first-response steps. We keep emergency contact details for all enrolled children always accessible.
-        </div>
+        <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer font-semibold text-slate-800 text-sm list-none select-none"><span>Can parents visit before admission?</span><span class="group-open:rotate-180 transition-transform text-brand text-xl font-light leading-none">⌄</span></summary>
+        <div class="px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-amber-50">Absolutely, yes — we encourage it! We would love for you to visit, meet us, see the home, and ask all your questions before making a decision. Call or WhatsApp us to schedule a visit. We are always happy to meet you and your child.</div>
       </details>
-
+      <details class="group rounded-2xl bg-white border border-amber-100 shadow-sm lift fade-in overflow-hidden" style="transition-delay:.35s">
+        <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer font-semibold text-slate-800 text-sm list-none select-none"><span>How are emergencies handled?</span><span class="group-open:rotate-180 transition-transform text-brand text-xl font-light leading-none">⌄</span></summary>
+        <div class="px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-amber-50">Parents are called immediately. We do not wait or delay. If a child is unwell, injured or upset, we inform the parents right away and take appropriate first-response steps. We keep emergency contact details for all enrolled children always accessible.</div>
+      </details>
     </div>
   </div>
 </section>
@@ -811,54 +759,36 @@
 ═══════════════════════════════════════════ -->
 <section id="contact" class="py-20 sm:py-24">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-
     <div class="text-center mb-12 fade-in">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-700 text-xs font-semibold mb-3">
-        💬 Get in Touch
-      </div>
-      <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900">
-        We'd love to <em class="text-brand">meet you</em> and your child.
-      </h2>
-      <p class="mt-3 text-slate-500 max-w-lg mx-auto">
-        Have a question? Want to visit? Ready to enroll? Reach out — we respond quickly.
-      </p>
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-700 text-xs font-semibold mb-3">💬 Get in Touch</div>
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900">We'd love to <em class="text-brand">meet you</em> and your child.</h2>
+      <p class="mt-3 text-slate-500 max-w-lg mx-auto">Have a question? Want to visit? Ready to enroll? Reach out — we respond quickly.</p>
     </div>
-
-    <!-- Contact cards -->
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 fade-in" style="transition-delay:.1s">
-
-      <a href="tel:+919594570085"
-         class="rounded-2xl p-6 bg-white border border-amber-100 lift text-center group shadow-sm hover:border-brand/30">
+      <a href="tel:+919594570085" class="rounded-2xl p-6 bg-white border border-amber-100 lift text-center group shadow-sm hover:border-brand/30">
         <div class="text-3xl mb-3">📞</div>
         <p class="font-semibold text-slate-800 group-hover:text-brand transition-colors">Call Us</p>
         <p class="text-sm text-slate-500 mt-1.5">+91 95945 70085</p>
         <p class="text-xs text-slate-400 mt-1">Mon–Sat · 8 AM – 7 PM</p>
       </a>
-
-      <a href="tel:+918108201967"
-         class="rounded-2xl p-6 bg-white border border-amber-100 lift text-center group shadow-sm hover:border-brand/30">
+      <a href="tel:+918108201967" class="rounded-2xl p-6 bg-white border border-amber-100 lift text-center group shadow-sm hover:border-brand/30">
         <div class="text-3xl mb-3">📲</div>
         <p class="font-semibold text-slate-800 group-hover:text-brand transition-colors">Call Us</p>
         <p class="text-sm text-slate-500 mt-1.5">+91 81082 01967</p>
         <p class="text-xs text-slate-400 mt-1">Mon–Sat · 8 AM – 7 PM</p>
       </a>
-
-      <a href="https://wa.me/918108201967?text=Hi%20Nurvi's%20Baby%20Day%20Care%2C%20I%27d%20like%20to%20enquire."
-         class="rounded-2xl p-6 bg-white border border-amber-100 lift text-center group shadow-sm hover:border-brand/30">
+      <a href="https://wa.me/918108201967?text=Hi%20Nurvi's%20Baby%20Day%20Care%2C%20I%27d%20like%20to%20enquire." class="rounded-2xl p-6 bg-white border border-amber-100 lift text-center group shadow-sm hover:border-brand/30">
         <div class="text-3xl mb-3">💬</div>
         <p class="font-semibold text-slate-800 group-hover:text-brand transition-colors">WhatsApp</p>
         <p class="text-sm text-slate-500 mt-1.5">+91 81082 01967</p>
         <p class="text-xs text-slate-400 mt-1">Chat now — quick & easy</p>
       </a>
-
       <div class="rounded-2xl p-6 bg-white border border-amber-100 lift text-center shadow-sm">
         <div class="text-3xl mb-3">📍</div>
         <p class="font-semibold text-slate-800">Visit Us</p>
         <p class="text-sm text-slate-500 mt-1.5 leading-relaxed">Triveni Garden, Sambhaji Nagar, Aadharwadi Road, Khadakpada, Kalyan West</p>
       </div>
-
     </div>
-
   </div>
 </section>
 
@@ -869,25 +799,21 @@
 <footer class="bg-slate-900 text-slate-400 py-12">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid sm:grid-cols-3 gap-8 mb-10">
-
       <div>
         <p class="font-display font-semibold text-white text-lg mb-2">Nurvi's Baby Day Care</p>
-        <p class="text-sm leading-relaxed">
-          A loving home-based childcare in Kalyan West where grandparents raise your child with warmth, care and joy.
-        </p>
+        <p class="text-sm leading-relaxed">A loving home-based childcare in Kalyan West where grandparents raise your child with warmth, care and joy.</p>
       </div>
-
       <div>
         <p class="font-semibold text-white text-sm mb-3">Quick Links</p>
         <ul class="space-y-2 text-sm">
-          <li><a href="#about"    class="hover:text-brand transition-colors">About</a></li>
-          <li><a href="#features" class="hover:text-brand transition-colors">What We Offer</a></li>
-          <li><a href="#safety"   class="hover:text-brand transition-colors">Food & Safety</a></li>
-          <li><a href="#pricing"  class="hover:text-brand transition-colors">Plans & Pricing</a></li>
-          <li><a href="#faq"      class="hover:text-brand transition-colors">FAQs</a></li>
+          <li><a href="#about"     class="hover:text-brand transition-colors">About</a></li>
+          <li><a href="#features"  class="hover:text-brand transition-colors">What We Offer</a></li>
+          <li><a href="#safety"    class="hover:text-brand transition-colors">Food & Safety</a></li>
+          <li><a href="#flexicare" class="hover:text-brand transition-colors">FlexiCare ✨</a></li>
+          <li><a href="#pricing"   class="hover:text-brand transition-colors">Plans & Pricing</a></li>
+          <li><a href="#faq"       class="hover:text-brand transition-colors">FAQs</a></li>
         </ul>
       </div>
-
       <div>
         <p class="font-semibold text-white text-sm mb-3">Contact</p>
         <ul class="space-y-2 text-sm">
@@ -898,9 +824,7 @@
           <li>🕗 Mon–Sat · 8:00 AM – 7:00 PM</li>
         </ul>
       </div>
-
     </div>
-
     <div class="border-t border-slate-800 pt-6 text-center text-xs">
       <p>© 2025 Nurvi's Baby Day Care. All rights reserved.</p>
     </div>
@@ -908,32 +832,40 @@
 </footer>
 
 
-<!-- ══════════════════════════════════════════
-  SCRIPTS
-═══════════════════════════════════════════ -->
 <script>
-  // Scroll fade-in observer
+  // Fade-in on scroll
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
     });
-  }, { threshold: 0.12 });
-
+  }, { threshold: 0.1 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-  // FAQ accordion: close others when one opens
+  // FAQ accordion
   document.querySelectorAll('#faq-list details').forEach(detail => {
     detail.addEventListener('toggle', () => {
       if (detail.open) {
-        document.querySelectorAll('#faq-list details').forEach(d => {
-          if (d !== detail) d.open = false;
-        });
+        document.querySelectorAll('#faq-list details').forEach(d => { if (d !== detail) d.open = false; });
       }
     });
   });
+
+  // FlexiCare tab switcher
+  function switchTab(id) {
+    ['hours','day','custom'].forEach(tab => {
+      const btn = document.getElementById('tab-' + tab);
+      const panel = document.getElementById('panel-' + tab);
+      if (tab === id) {
+        btn.classList.add('active');
+        btn.classList.remove('text-white/60');
+        panel.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+        btn.classList.add('text-white/60');
+        panel.classList.remove('active');
+      }
+    });
+  }
 </script>
 
 </body>
